@@ -27,7 +27,7 @@ In this challenge, you will create a Single Page Application complete with Clien
 ## Self-Study/Essay Questions
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
-
+Sorry I did these 5 before reading Nathans Message...
 1.  Explain the differences between `client-side routing` and `server-side routing`.
     1a. With server-side routing, when a change or adjustment is made on the application, this triggers a new GET request, and refreshes the page, discarding the previous old page. With client side, when a change or adjustment is made by the user, the GET request will not be called, but the internal state of the app will change. This means the entire app must be loaded upon first opening it, which is not the case for server side.
 
@@ -94,11 +94,11 @@ Construct your Components to build a Single Page Application. Keep your componen
 
 Add a Router to this application by using React Router.
 
-- [ ] You'll start by wrapping your `root` component in the `Router` component.
-- [ ] Declare your routes with `Route`.
+- [x] You'll start by wrapping your `root` component in the `Router` component.
+- [x] Declare your routes with `Route`.
 - [ ] Then make it so you can navigate to your routes using `Link`.
-- [ ] Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component,and one at `/smurf-form` for your form.
-- [ ] Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
+- [x] Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component,and one at `/smurf-form` for your form.
+- [x] Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
 
 ## STRETCH PROBLEMS
 

@@ -41,8 +41,20 @@ class App extends Component {
   render(props) {
     return (
       <div className="App">
-        <Link to='/'>Home</Link>{' '}
-        <Link to='/smurf-form'>Add New Smurf</Link>
+        <NavLink className='link' activeStyle={{ 
+          color: '#84B0CD', 
+          textDecoration: 'none', 
+          background: 'black',
+          border: '1px solid #84B0CD'
+          }} exact to='/'>(NavLink) Home</NavLink>{' '}
+        <NavLink className='link' activeStyle={{ 
+          color: '#84B0CD', 
+          textDecoration: 'none', 
+          background: 'black',
+          border: '1px solid #84B0CD'
+          }} to='/smurf-form'>(NavLink) Add New Smurf</NavLink>
+          <Link to='/'>(Link) Home</Link>
+          <Link to='/smurf-form'>(Link) Add New Smurf</Link>
         <Route exact path='/smurf-form' render={() => <SmurfForm {...props} addSmurf={this.addSmurf}/> }/>
         <Route path='/' render={() => <Smurfs smurfs={this.state.smurfs} />}/>
       </div>
