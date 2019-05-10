@@ -10,10 +10,28 @@ class SmurfForm extends Component {
     };
   }
 
+ //-----------------------------------------------------
+ // Added Second Way To Add Smurf Below, Uncomment and Comment Other Section To Test
+  // handleInputChange = ev => {
+  //   ev.persist();
+  //   let value = ev.target.value;
+  
+  //   this.setState(prevState => ({
+  //       ...prevState.friends,
+  //       [ev.target.name]: value
+  //   }));
+  // };
+
+  // addSmurf = e => {
+  //   e.preventDefault();
+  //   this.props.addSmurf(this.state);
+  // };
+  //-----------------------------------------------------
+  //-----------------------------------------------------
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-
+    this.props.addSmurf(this.state)
     this.setState({
       name: '',
       age: '',
@@ -24,7 +42,7 @@ class SmurfForm extends Component {
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
+  //-----------------------------------------------------
   render() {
     return (
       <div className="SmurfForm">
