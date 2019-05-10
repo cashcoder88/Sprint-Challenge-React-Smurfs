@@ -5,11 +5,15 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import { Route, Link, NavLink } from 'react-router-dom';
 
+
+let id = null;
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       smurfs: [],
+      id: id
     };
   }
 
@@ -34,6 +38,21 @@ class App extends Component {
     .catch(err => console.log(err));
   }
 
+  deleteSmurf =(i)=>{
+    id = this.state.smurfs[i].id
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then(res=>{
+      this.setState(prevState=>({smurfs: res.data}))
+
+    })
+    .catch(err=>console.log(err))
+  }
+
+  changeSmurf=(index)=>{
+    id = this.state.smurfs[index].id;
+    this.context.history.push(`/smurf-form`)
+  }
+
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -55,8 +74,8 @@ class App extends Component {
           }} to='/smurf-form'>(NavLink) Add New Smurf</NavLink>
           <Link to='/'>(Link) Home</Link>
           <Link to='/smurf-form'>(Link) Add New Smurf</Link>
-        <Route exact path='/smurf-form' render={() => <SmurfForm {...props} addSmurf={this.addSmurf}/> }/>
-        <Route path='/' render={() => <Smurfs smurfs={this.state.smurfs} />}/>
+        <Route exact path='/smurf-form' render={() => <SmurfForm {...props} addSmurf={this.addSmurf}/>}/>
+        <Route path='/' render={() => <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf}/>}/>
       </div>
     );
   }
